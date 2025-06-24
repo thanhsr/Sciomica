@@ -1,0 +1,32 @@
+<script>
+if ('Notification' in window && navigator.serviceWorker) {
+    Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+            // Đăng ký service worker
+            navigator.serviceWorker.register('/sw.js');
+
+            // Kiểm tra bài mới mỗi 60 giây
+            setInterval(async () => {
+                const res = await fetch('/push-payload.json');
+                if (!res.ok) return;
+                const data = await res.json();
+                if (data && data.title) {
+                    // Hiển thị thông báo
+                    navigator.serviceWorker.getRegistration().then(reg => {
+                        if (reg) {
+                            reg.showNotification(data.title, {
+                                body: data.body,
+                                data: { url: data.url },
+                                icon: '/icon.png'
+                            });
+                        }
+                    });
+
+                    // Clear file sau khi thông báo
+                    fetch('/clear-payload.php');
+                }
+            }, 60000); // 60s
+        }
+    });
+}
+</script>
