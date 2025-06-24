@@ -8,8 +8,13 @@ Website: https://sciomica.com
 
 **Social:**
 https://www.facebook.com/sciomica
+
 https://www.youtube.com/@sciomica
+
 https://www.pinterest.com/sciomica/
+
 https://www.linkedin.com/company/sciomica/
-https://scholar.google.com.vn/citations?hl=en&user=P6C_D3oAAAAJ
+
+https://scholar.google.com/citations?hl=en&user=P6C_D3oAAAAJ
+
 https://x.com/sciomica
